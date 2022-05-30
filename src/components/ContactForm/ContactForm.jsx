@@ -1,30 +1,29 @@
-import { Component } from 'react'
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './contactForm.module.css'
 
-class ContactForm extends Component {
-    state = {
+const ContactForm = ({ onSubmit }) => {
+    const [state, setState] = useState({
         name: '',
         number: '',
-    }
+    });
 
-    handleChange = ({ target }) => {
+
+    const handleChange = ({ target }) => {
         const { name, value } = target;
-        this.setState({
+        setState({
             [name]: value
         })
     }
 
-    handleSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        this.props.onSubmit(this.state);
-        this.setState({ name: '', number: ''})
+        onSubmit(state);
+        setState({ name: '', number: ''})
     }
-
-    render() {
-        const {name, number} = this.state
-        const {handleSubmit, handleChange } = this
+    
+        const {name, number} = state
         return (
             <form className={styles.form}
                 onSubmit={handleSubmit}>
@@ -57,7 +56,7 @@ class ContactForm extends Component {
                 <button type="submit" className={styles.button}>Add contact</button>
             </form>
         );
-    }
+    
 }
 
 export default ContactForm;
