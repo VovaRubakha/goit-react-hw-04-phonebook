@@ -1,0 +1,29 @@
+.list {
+  margin-top: 30px;
+  font-size: 18px;
+  padding: 0;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item + .item {
+  margin-top: 10px;
+}
+
+.button {
+  width: 75px;
+  height: 35px;
+  border-radius: 15px;
+  border: 1px solid rgb(0, 0, 0);
+  color: rgb(68, 68, 68);
+  background-color: transparent;
+  cursor: pointer;
+}
+.button:hover {
+  border: 1px solid rgb(133, 0, 0);
+  background-color: rgb(253, 165, 165);
+}
