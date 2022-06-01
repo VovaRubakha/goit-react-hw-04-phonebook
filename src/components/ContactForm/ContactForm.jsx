@@ -12,7 +12,6 @@ const ContactForm = ({ onSubmit }) => {
 
     const handleChange = ({ target }) => {
         const { name, value } = target;
-        console.log(name, value);
         setState( prevState => ({
             ...prevState, [name]: value
         }))
@@ -20,7 +19,6 @@ const ContactForm = ({ onSubmit }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(state);
         onSubmit(state);
         setState({ name: '', number: ''})
     }
